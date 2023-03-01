@@ -118,8 +118,8 @@ function addContainer(name) {
 function addIceCream(name) {
   console.log(name, "has been added to your cart");
   let chosenItem = iceCream.find(i => i.name === name)
-  console.log(chosenItem)
   chosenItem.quantity++
+  console.log(chosenItem)
 
   drawCart()
 }
@@ -131,4 +131,22 @@ function addTopping(name) {
   console.log(chosenItem);
 
   drawCart()
+}
+
+function checkout() {
+  if (window.confirm("Are you ready to empty your cart and check out?")) {
+
+    cNameElem.innerHTML = ''
+    cQtyElem.innerHTML = ''
+    cUnitPriceElem.innerHTML = ''
+    cTotalPriceElem.innerHTML = ''
+    iNameElem.innerHTML = ''
+    iQtyElem.innerHTML = ''
+    iUnitPriceElem.innerHTML = ''
+    iTotalPriceElem.innerHTML = ''
+    tNameElem.innerHTML = ''
+    tQtyElem.innerHTML = ''
+    tUnitPriceElem.innerHTML = ''
+    tTotalPriceElem.innerHTML = ''
+  }
 }
