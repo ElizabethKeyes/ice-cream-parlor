@@ -1,0 +1,40 @@
+.my-bg {
+  background-color: #faf3cd;
+}
+
+.my-cart-card {
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 1em;
+  width: 100%;
+  margin-left: 1em;
+  min-height: 80vh;
+}
+
+.my-bottom-border {
+  border-bottom: gray solid 3px;
+}
+
+.my-img {
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+}
+
+.my-img-card:hover {
+  transform: scale(1.1);
+  transition: all .2s ease
+}
+
+.my-img-card {
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
