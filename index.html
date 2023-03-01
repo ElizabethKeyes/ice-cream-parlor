@@ -70,8 +70,9 @@
             <p id="ice-cream-total-price"></p>
             <p id="topping-total-price"></p>
           </div>
-          <div class="col-12">
-            <button class="btn btn-success" onClick="checkout()">Check Out</button>
+          <div class="col-12 d-flex justify-content-between align-items-center">
+            <button class="btn btn-success mb-2" onClick="checkout()">Check Out</button>
+            <p id="cart-total">Cart Total:</p>
           </div>
         </div>
       </div>
@@ -79,29 +80,29 @@
         <!-- Menu items here -->
         <section class="row justify-content-evenly">
           <h2>Containers</h2>
-          <div class="col-3 my-img-card shadow" onclick="addContainer('Waffle Cone')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(containers, 'Waffle Cone')">
             <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" alt="Waffle cone" class="my-img">
             <p class="text-center">Waffle Cone</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addContainer('Waffle Bowl')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(containers, 'Waffle Bowl')">
             <img src="http://images.wbmason.com/350/L_JOY66050.jpg" alt="Waffle bowl" class="my-img">
             <p class="text-center">Waffle Bowl</p>
           </div>
         </section>
         <section class="row justify-content-evenly">
           <h2>Ice Cream</h2>
-          <div class="col-3 my-img-card shadow" onclick="addIceCream('Vanilla')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(iceCream, 'Vanilla')">
             <img
               src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg"
               alt="Vanilla ice cream" class="my-img">
             <p class="text-center">Vanilla</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addIceCream('Strawberry')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(iceCream, 'Strawberry')">
             <img src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg"
               alt="strawberry ice cream" class="my-img">
             <p class="text-center">Strawberry</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addIceCream('Cookie Dough')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(iceCream, 'Cookie Dough')">
             <img src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg"
               alt="Cookie dough ice cream" class="my-img">
             <p class="text-center">Cookie Dough</p>
@@ -109,12 +110,12 @@
         </section>
         <section class="row justify-content-evenly">
           <h2>Toppings</h2>
-          <div class="col-3 my-img-card shadow" onclick="addTopping('Sprinkles')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(toppings, 'Sprinkles')">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" alt="sprinkles"
               class="my-img">
             <p class="text-center">Sprinkles</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addTopping('Chocolate Chips')">
+          <div class="col-3 my-img-card shadow" onclick="addItem(toppings, 'Chocolate Chips')">
             <img
               src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360"
               alt="chocolate chips" class="my-img">

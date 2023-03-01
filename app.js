@@ -39,6 +39,8 @@ const containers = [{
   quantity: 0
 }]
 
+// Elements by ID
+// #region
 
 let cNameElem = document.getElementById("container-name")
 let cQtyElem = document.getElementById("container-quantity")
@@ -55,8 +57,10 @@ let tQtyElem = document.getElementById("topping-quantity")
 let tUnitPriceElem = document.getElementById("topping-price")
 let tTotalPriceElem = document.getElementById("topping-total-price")
 
-let cartTotal = 0
+// #endregion
 
+let cartTotal = 0
+let cartTotalElem = document.getElementById("cart-total")
 
 function drawCart() {
   cNameElem.innerHTML = ''
@@ -103,38 +107,22 @@ function drawCart() {
       tTotalPriceElem.innerHTML += `<p> $${(t.price * t.quantity).toFixed(2)}</p>`
     }
   })
-
+  cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
 }
 
-function addContainer(name) {
-  console.log(name, "has been added to your cart");
-  let chosenItem = containers.find(c => c.name === name)
+
+function addItem(list, name) {
+  console.log(list, name, "addItem function");
+  let chosenItem = list.find(i => i.name === name)
   chosenItem.quantity++
+  cartTotal += chosenItem.price
   console.log(chosenItem);
-
-  drawCart()
-}
-
-function addIceCream(name) {
-  console.log(name, "has been added to your cart");
-  let chosenItem = iceCream.find(i => i.name === name)
-  chosenItem.quantity++
-  console.log(chosenItem)
-
-  drawCart()
-}
-
-function addTopping(name) {
-  console.log(name, "has been added to your cart");
-  let chosenItem = toppings.find(t => t.name === name)
-  chosenItem.quantity++
-  console.log(chosenItem);
-
-  drawCart()
 }
 
 function checkout() {
   if (window.confirm("Are you ready to empty your cart and check out?")) {
+    cartTotal = 0
+    cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
 
     cNameElem.innerHTML = ''
     cQtyElem.innerHTML = ''
