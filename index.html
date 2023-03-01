@@ -45,22 +45,30 @@
           <div class="col-5">
             <h5 class="my-bottom-border text-center text-primary">Name</h5>
             <!-- Item name here -->
-            <p id="ice-cream"></p>
+            <p id="container-name"></p>
+            <p id="ice-cream-name"></p>
+            <p id="topping-name"></p>
           </div>
           <div class="col-2">
             <h5 class="my-bottom-border text-center text-primary">QTY</h5>
             <!-- QTY here -->
-            <p id="quantity"></p>
+            <p id="container-quantity"></p>
+            <p id="ice-cream-quantity"></p>
+            <p id="topping-quantity"></p>
           </div>
           <div class="col-2">
             <h5 class="my-bottom-border text-center text-primary">EA</h5>
             <!-- Unit price here -->
-            <p id="unit-price"></p>
+            <p id="container-price"></p>
+            <p id="ice-cream-price"></p>
+            <p id="topping-price"></p>
           </div>
           <div class="col-3">
             <h5 class="my-bottom-border text-center text-primary">Total</h5>
             <!-- Total price here -->
-            <p id="total-price"></p>
+            <p id="container-total-price"></p>
+            <p id="ice-cream-total-price"></p>
+            <p id="topping-total-price"></p>
           </div>
         </div>
       </div>
@@ -68,29 +76,29 @@
         <!-- Menu items here -->
         <section class="row justify-content-evenly">
           <h2>Containers</h2>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Waffle Cone')">
+          <div class="col-3 my-img-card shadow" onclick="addContainer('Waffle Cone')">
             <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" alt="Waffle cone" class="my-img">
             <p class="text-center">Waffle Cone</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Waffle Bowl')">
+          <div class="col-3 my-img-card shadow" onclick="addContainer('Waffle Bowl')">
             <img src="http://images.wbmason.com/350/L_JOY66050.jpg" alt="Waffle bowl" class="my-img">
             <p class="text-center">Waffle Bowl</p>
           </div>
         </section>
         <section class="row justify-content-evenly">
           <h2>Ice Cream</h2>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Vanilla Ice Cream')">
+          <div class="col-3 my-img-card shadow" onclick="addIceCream('Vanilla')">
             <img
               src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg"
               alt="Vanilla ice cream" class="my-img">
             <p class="text-center">Vanilla</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Strawberry Ice Cream')">
+          <div class="col-3 my-img-card shadow" onclick="addIceCream('Strawberry')">
             <img src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg"
               alt="strawberry ice cream" class="my-img">
             <p class="text-center">Strawberry</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Cookie Dough Ice Cream')">
+          <div class="col-3 my-img-card shadow" onclick="addIceCream('Cookie Dough')">
             <img src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg"
               alt="Cookie dough ice cream" class="my-img">
             <p class="text-center">Cookie Dough</p>
@@ -98,12 +106,12 @@
         </section>
         <section class="row justify-content-evenly">
           <h2>Toppings</h2>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Sprinkles')">
+          <div class="col-3 my-img-card shadow" onclick="addTopping('Sprinkles')">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" alt="sprinkles"
               class="my-img">
             <p class="text-center">Sprinkles</p>
           </div>
-          <div class="col-3 my-img-card shadow" onclick="addToCart('Chocolate Chips')">
+          <div class="col-3 my-img-card shadow" onclick="addTopping('Chocolate Chips')">
             <img
               src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360"
               alt="chocolate chips" class="my-img">
