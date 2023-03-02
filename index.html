@@ -38,46 +38,63 @@
 <body class="my-bg debug">
   <main class="container-fluid">
     <section class="row">
+      <!-- cart side -->
       <div class="col-5">
-        <!-- Cart here -->
-        <div class="my-cart-card row align-content-between">
 
+        <div class="my-cart-card row">
+          <div class="col-5">
+            Name</div>
+          <div class="col-2">
+            QTY</div>
+          <div class="col-2">
+            EA</div>
+          <div class="col-3">
+            Total</div>
+
+          <div class="d-flex row" id="insert-cart-here">
+            <!-- cart populates here -->
+          </div>
+          <!-- old cart -->
+          <!-- #region -->
+          <!--           
           <div class="col-5">
             <h5 class="my-bottom-border text-center text-primary">Name</h5>
-            <!-- Item name here -->
+            Item name here
             <p id="container-name"></p>
             <p id="ice-cream-name"></p>
             <p id="topping-name"></p>
           </div>
           <div class="col-2">
             <h5 class="my-bottom-border text-center text-primary">QTY</h5>
-            <!-- QTY here -->
+            QTY here
             <p id="container-quantity"></p>
             <p id="ice-cream-quantity"></p>
             <p id="topping-quantity"></p>
           </div>
           <div class="col-2">
             <h5 class="my-bottom-border text-center text-primary">EA</h5>
-            <!-- Unit price here -->
+            Unit price here
             <p id="container-price"></p>
             <p id="ice-cream-price"></p>
             <p id="topping-price"></p>
           </div>
           <div class="col-3">
             <h5 class="my-bottom-border text-center text-primary">Total</h5>
-            <!-- Total price here -->
+            Total price here
             <p id="container-total-price"></p>
             <p id="ice-cream-total-price"></p>
             <p id="topping-total-price"></p>
-          </div>
-          <div class="col-12 d-flex justify-content-between align-items-center">
-            <button class="btn btn-success mb-2" onClick="checkout()">Check Out</button>
-            <p id="cart-total">Cart Total:</p>
-          </div>
+          </div> -->
+          <!-- #endregion -->
+
+        </div>
+        <div class="col-12 d-flex justify-content-between">
+          <button class="btn btn-success mb-2" onClick="checkout()">Check Out</button>
+          <p id="cart-total">Cart Total:</p>
         </div>
       </div>
+      <!-- Menu side -->
       <div class="col-7">
-        <!-- Menu items here -->
         <section class="row justify-content-evenly">
           <h2>Containers</h2>
           <div class="col-3 my-img-card shadow" onclick="addItem(containers, 'Waffle Cone')">

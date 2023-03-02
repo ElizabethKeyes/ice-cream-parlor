@@ -5,8 +5,7 @@
 .my-cart-card {
   background-color: white;
   border-radius: 5px;
-  padding-top: 1em;
-  min-height: 80vh;
+  padding: .5em;
 }
 
 .my-bottom-border {

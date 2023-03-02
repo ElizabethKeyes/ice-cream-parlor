@@ -42,99 +42,164 @@ const containers = [{
 // Elements by ID
 // #region
 
-let cNameElem = document.getElementById("container-name")
-let cQtyElem = document.getElementById("container-quantity")
-let cUnitPriceElem = document.getElementById("container-price")
-let cTotalPriceElem = document.getElementById("container-total-price")
+// let cNameElem = document.getElementById("container-name")
+// let cQtyElem = document.getElementById("container-quantity")
+// let cUnitPriceElem = document.getElementById("container-price")
+// let cTotalPriceElem = document.getElementById("container-total-price")
 
-let iNameElem = document.getElementById("ice-cream-name")
-let iQtyElem = document.getElementById("ice-cream-quantity")
-let iUnitPriceElem = document.getElementById("ice-cream-price")
-let iTotalPriceElem = document.getElementById("ice-cream-total-price")
+// let iNameElem = document.getElementById("ice-cream-name")
+// let iQtyElem = document.getElementById("ice-cream-quantity")
+// let iUnitPriceElem = document.getElementById("ice-cream-price")
+// let iTotalPriceElem = document.getElementById("ice-cream-total-price")
 
-let tNameElem = document.getElementById("topping-name")
-let tQtyElem = document.getElementById("topping-quantity")
-let tUnitPriceElem = document.getElementById("topping-price")
-let tTotalPriceElem = document.getElementById("topping-total-price")
+// let tNameElem = document.getElementById("topping-name")
+// let tQtyElem = document.getElementById("topping-quantity")
+// let tUnitPriceElem = document.getElementById("topping-price")
+// let tTotalPriceElem = document.getElementById("topping-total-price")
 
 // #endregion
 
 let cartTotal = 0
+let cartItems = []
 let cartTotalElem = document.getElementById("cart-total")
+let cartElem = document.getElementById("insert-cart-here")
 
 function drawCart() {
-  cNameElem.innerHTML = ''
-  cQtyElem.innerHTML = ''
-  cUnitPriceElem.innerHTML = ''
-  cTotalPriceElem.innerHTML = ''
-  iNameElem.innerHTML = ''
-  iQtyElem.innerHTML = ''
-  iUnitPriceElem.innerHTML = ''
-  iTotalPriceElem.innerHTML = ''
-  tNameElem.innerHTML = ''
-  tQtyElem.innerHTML = ''
-  tUnitPriceElem.innerHTML = ''
-  tTotalPriceElem.innerHTML = ''
-  let cTotal = 0
-  let iCTotal = 0
-  let tTotal = 0
+  let template = ``
+  cartItems.forEach(item => {
+    template +=
+      `<div class="col-5">
+            ${item.name}
+            </div>
+            <div class="col-2">
+            ${item.quantity}
+            </div>
+            <div class="col-2">
+            $${(item.price).toFixed(2)}
+            </div>
+            <div class="col-3">
+            $${(item.price * item.quantity).toFixed(2)}
+            </div>
+            `
+    cartElem.innerHTML = template
+    cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
 
-  containers.forEach(c => {
-    if (c.quantity) {
-      cTotal = (c.price * c.quantity)
-      cNameElem.innerHTML += `<p>${c.name}</p>`
-      cQtyElem.innerHTML += `<p>${c.quantity}</p>`
-      cUnitPriceElem.innerHTML += `<p>$${c.price}</p>`
-      cTotalPriceElem.innerHTML += `<p> $${(c.price * c.quantity).toFixed(2)}</p>`
-    }
   })
-
-  iceCream.forEach(i => {
-    if (i.quantity) {
-      iCTotal += (i.price * i.quantity)
-      iNameElem.innerHTML += `<p>${i.name}</p>`
-      iQtyElem.innerHTML += `<p>$${i.quantity}</p>`
-      iUnitPriceElem.innerHTML += `<p>$${i.price}</p>`
-      iTotalPriceElem.innerHTML += `<p> $${(i.price * i.quantity).toFixed(2)}</p>`
-    }
-  })
-  toppings.forEach(t => {
-    if (t.quantity) {
-      tTotal += (t.price * t.quantity)
-      tNameElem.innerHTML += `<p>${t.name}</p>`
-      tQtyElem.innerHTML += `<p>${t.quantity}</p>`
-      tUnitPriceElem.innerHTML += `<p>$${t.price}</p>`
-      tTotalPriceElem.innerHTML += `<p> $${(t.price * t.quantity).toFixed(2)}</p>`
-    }
-  })
-  cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
 }
-
 
 function addItem(list, name) {
   console.log(list, name, "addItem function");
   let chosenItem = list.find(i => i.name === name)
   chosenItem.quantity++
   cartTotal += chosenItem.price
-  console.log(chosenItem);
+  cartItems.push(chosenItem)
+  console.log(cartItems, "cart items");
+  console.log(cartTotal)
+
+  drawCart()
 }
 
 function checkout() {
   if (window.confirm("Are you ready to empty your cart and check out?")) {
     cartTotal = 0
-    cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
+    cartItems.forEach(i => i.quantity = 0)
+    cartItems = []
+    console.log(cartItems);
+    cartElem.innerHTML = ''
 
-    cNameElem.innerHTML = ''
-    cQtyElem.innerHTML = ''
-    cUnitPriceElem.innerHTML = ''
-    cTotalPriceElem.innerHTML = ''
-    iNameElem.innerHTML = ''
-    iQtyElem.innerHTML = ''
-    iUnitPriceElem.innerHTML = ''
-    iTotalPriceElem.innerHTML = ''
-    tNameElem.innerHTML = ''
-    tQtyElem.innerHTML = ''
-    tUnitPriceElem.innerHTML = ''
-    tTotalPriceElem.innerHTML = ''
+    // old drawCart function for reference
+    // #region
+    // cNameElem.innerHTML = ''
+    // cQtyElem.innerHTML = ''
+    // cUnitPriceElem.innerHTML = ''
+    // cTotalPriceElem.innerHTML = ''
+    // iNameElem.innerHTML = ''
+    // iQtyElem.innerHTML = ''
+    // iUnitPriceElem.innerHTML = ''
+    // iTotalPriceElem.innerHTML = ''
+    // tNameElem.innerHTML = ''
+    // tQtyElem.innerHTML = ''
+    // tUnitPriceElem.innerHTML = ''
+    // tTotalPriceElem.innerHTML = ''
+    // let cTotal = 0
+    // let iCTotal = 0
+    // let tTotal = 0
+
+    // containers.forEach(c => {
+    //   if (c.quantity) {
+    //     cTotal = (c.price * c.quantity)
+    //     cNameElem.innerHTML += `<p>${c.name}</p>`
+    //     cQtyElem.innerHTML += `<p>${c.quantity}</p>`
+    //     cUnitPriceElem.innerHTML += `<p>$${c.price}</p>`
+    //     cTotalPriceElem.innerHTML += `<p> $${(c.price * c.quantity).toFixed(2)}</p>`
+    //   }
+    // })
+
+    // iceCream.forEach(i => {
+    //   if (i.quantity) {
+    //     iCTotal += (i.price * i.quantity)
+    //     iNameElem.innerHTML += `<p>${i.name}</p>`
+    //     iQtyElem.innerHTML += `<p>$${i.quantity}</p>`
+    //     iUnitPriceElem.innerHTML += `<p>$${i.price}</p>`
+    //     iTotalPriceElem.innerHTML += `<p> $${(i.price * i.quantity).toFixed(2)}</p>`
+    //   }
+    // })
+    // toppings.forEach(t => {
+    //   if (t.quantity) {
+    //     tTotal += (t.price * t.quantity)
+    //     tNameElem.innerHTML += `<p>${t.name}</p>`
+    //     tQtyElem.innerHTML += `<p>${t.quantity}</p>`
+    //     tUnitPriceElem.innerHTML += `<p>$${t.price}</p>`
+    //     tTotalPriceElem.innerHTML += `<p> $${(t.price * t.quantity).toFixed(2)}</p>`
+    //   }
+    // })
+    // cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
+    // #endregion
+
+
+
+    // function addContainer(name) {
+    //   console.log(name, "has been added to your cart");
+    //   let chosenItem = containers.find(c => c.name === name)
+    //   chosenItem.quantity++
+    //   cartTotal += chosenItem.price
+    //   console.log(chosenItem);
+
+    //   drawCart()
+    // }
+
+    // function addIceCream(name) {
+    //   console.log(name, "has been added to your cart");
+    //   let chosenItem = iceCream.find(i => i.name === name)
+    //   chosenItem.quantity++
+    //   cartTotal += chosenItem.price
+    //   console.log(chosenItem)
+
+    //   drawCart()
+    // }
+
+    // function addTopping(name) {
+    //   console.log(name, "has been added to your cart");
+    //   let chosenItem = toppings.find(t => t.name === name)
+    //   chosenItem.quantity++
+    //   cartTotal += chosenItem.price
+    //   console.log(chosenItem);
+
+    //   drawCart()
+    // }
+
+
+    // cNameElem.innerHTML = ''
+    // cQtyElem.innerHTML = ''
+    // cUnitPriceElem.innerHTML = ''
+    // cTotalPriceElem.innerHTML = ''
+    // iNameElem.innerHTML = ''
+    // iQtyElem.innerHTML = ''
+    // iUnitPriceElem.innerHTML = ''
+    // iTotalPriceElem.innerHTML = ''
+    // tNameElem.innerHTML = ''
+    // tQtyElem.innerHTML = ''
+    // tUnitPriceElem.innerHTML = ''
+    // tTotalPriceElem.innerHTML = ''
   }
 }
