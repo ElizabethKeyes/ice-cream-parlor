@@ -1,3 +1,8 @@
+.my-header-bg {
+  background-color: #eebdc0;
+  height: 12vh;
+}
+
 .my-bg {
   background-color: #faf3cd;
 }
@@ -12,7 +17,12 @@
   border-bottom: gray solid 3px;
 }
 
+.my-top-border {
+  border-top: gray solid 3px;
+}
+
 .my-img {
+  height: 25vh;
   object-fit: cover;
   object-position: center;
   border-top-left-radius: 5px;

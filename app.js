@@ -64,11 +64,15 @@ let cartItems = []
 let cartTotalElem = document.getElementById("cart-total")
 let cartElem = document.getElementById("insert-cart-here")
 
+
+// TODO need to fix drawCart function. The items still duplicate. Look at Mick's addBurger and drawCart functions for reference.
+
+// REVIEW Preventing the cart from duplicating existing items happened in the addItem function. Prevented that item from being added to the cartItems array to begin with, just a quantity and total price update.
 function drawCart() {
   let template = ``
   cartItems.forEach(item => {
-    template +=
-      `<div class="col-5">
+    template += `
+      <div class="col-5">
             ${item.name}
             </div>
             <div class="col-2">
@@ -91,12 +95,31 @@ function drawCart() {
 
 function addItem(list, name) {
   console.log(list, name, "addItem function");
+
+  if (list === containers) {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].quantity > 0) {
+        window.alert("Oops! Only one container per creation, please.")
+        return;
+      }
+    }
+  }
+
   let chosenItem = list.find(i => i.name === name)
   chosenItem.quantity++
   cartTotal += chosenItem.price
+  console.log(chosenItem);
+
+  for (let i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].name === name) {
+      drawCart()
+      return
+    }
+  }
+  // find chosenItem name in cartItems array
+  // if there, drawCart and return since we don't need to push the full object into array again)
+  // if not there, push the full item onto the array 
   cartItems.push(chosenItem)
-  console.log(cartItems, "cart items");
-  console.log(cartTotal)
 
   drawCart()
 }
@@ -106,8 +129,11 @@ function checkout() {
     cartTotal = 0
     cartItems.forEach(i => i.quantity = 0)
     cartItems = []
-    console.log(cartItems);
     cartElem.innerHTML = ''
+    cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
+    window.alert("Thanks for stopping by!")
+  }
+}
 
     // old drawCart function for reference
     // #region
@@ -203,5 +229,3 @@ function checkout() {
     // tQtyElem.innerHTML = ''
     // tUnitPriceElem.innerHTML = ''
     // tTotalPriceElem.innerHTML = ''
-  }
-}
