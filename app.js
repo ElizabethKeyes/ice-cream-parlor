@@ -81,6 +81,8 @@ function drawCart() {
             $${(item.price * item.quantity).toFixed(2)}
             </div>
             `
+
+    console.log(template, "template");
     cartElem.innerHTML = template
     cartTotalElem.innerHTML = `<p>Cart Total: $${cartTotal}</p>`
 
